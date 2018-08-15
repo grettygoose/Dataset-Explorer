@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/src/assets/tcga
 
 # IDEs and editors
 /.idea
@@ -30,10 +31,31 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
+/server/python/load_testing/
+
+# e2e
+/e2e/*.js
+/e2e/*.map
 
 # System Files
 .DS_Store
 Thumbs.db
+
+#awsmobilejs
+appsync-info.json
+aws-info.json
+project-info.json
+aws-exports.*
+awsmobilejs/.awsmobile/backend-build
+awsmobilejs/\#current-backend-info
+~awsmobilejs-*/
+<<<<<<< HEAD
+
+*.csv
+*.xls
+*.xlsx
+=======
+>>>>>>> 2c71aebe4fb37f4ac62d626666ce10b693235fc5
+node_modules/
