@@ -1,15 +1,13 @@
 <h2>Oncoscape Datasets</h2>
+<!-- <form class="example-form">
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Search Datasets"></textarea>
+  </mat-form-field>
+</form> -->
 <ul class="heroes">
-  <li *ngFor="let dataset of datasets"
-    [class.selected]="dataset === selectedDataset"
-    (click)="onSelect(dataset)">
+  <li *ngFor="let dataset of datasets" [class.selected]="dataset === selectedDataset" (click)="onSelect(dataset)">
     <span class="badge">{{dataset.id}}</span> {{dataset.name}}
   </li>
 </ul>
- 
+
 <app-datasets-details [dataset]="selectedDataset"></app-datasets-details>
- 
-
- 
-
-
