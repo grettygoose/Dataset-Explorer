@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DatasetsComponent } from './datasets/datasets.component';
 import { DatasetsDetailsComponent } from './datasets-details/datasets-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { DatasetsDetailsComponent } from './datasets-details/datasets-details.co
     DatasetsDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
