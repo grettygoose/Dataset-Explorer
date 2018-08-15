@@ -1,11 +1,10 @@
 <div *ngIf="dataset">
 
   <h2>{{dataset.name | uppercase}} Details</h2>
+  <div><span>Name: </span>{{dataset.name}}</div>
   <div><span>id: </span>{{dataset.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="dataset.name" placeholder="name"/>
-    </label>
-  </div>
+  <div><span># of captured columns : </span>{{dataset.columns}}</div>
+  <div><span>Public Dataset: </span>{{dataset.public}}</div>
+  <div><span>Contact Info: </span>{{dataset.contact}}</div>
 
 </div>
