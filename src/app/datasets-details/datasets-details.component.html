@@ -1,3 +1,11 @@
-<p>
-  datasets-details works!
-</p>
+<div *ngIf="dataset">
+
+  <h2>{{dataset.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{dataset.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="dataset.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
