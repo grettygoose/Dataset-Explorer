@@ -17,7 +17,7 @@ export class DatasetsComponent implements OnInit {
   selectedDataset: Dataset;
 
   // filter for table
-  displayedColumns: string[] = ['id', 'name', 'columns', 'public', 'contact'];
+  displayedColumns: string[] = ['name', 'description', 'isHuman', 'isPhi', 'isPublic', 'reviewNumber', 'status', 'email'];
   dataSource = new MatTableDataSource(DATASETS);
 
   applyFilter(filterValue: string) {
@@ -28,8 +28,8 @@ export class DatasetsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(dataset: Dataset): void {
-    this.selectedDataset = dataset;
+  onSelect(datasets: Dataset): void {
+    this.selectedDataset = datasets;
   }
 
 }

@@ -1,14 +1,12 @@
 <div *ngIf="dataset">
 
   <h2>{{dataset.name | uppercase}} Details</h2>
-  <div><span>Name: </span>{{dataset.name}}</div>
-  <div><span>id: </span>{{dataset.id}}</div>
-  <div><span># of captured columns : </span>{{dataset.columns}}</div>
-  <div><span>Public Dataset: </span>{{dataset.public}}</div>
-  <div><span>Contact Info: </span>{{dataset.contact}}</div>
-  <div><span>More info 1: </span>{{dataset.test}}</div>
-  <div><span>More info 2: </span>{{dataset.test2}}</div>
-  <div><span>More info 3: </span>{{dataset.test2}}</div>
-  <div><span>More info 4: </span>{{dataset.test3}}</div>
+  <div><span>Name: </span>{{dataset.content.name}}</div>
+  <div><span>Public Dataset: </span>{{dataset.content.ispublic}}</div>
+  <div><span>Contact Info: </span>{{dataset.content.ispublic}}}</div>
+  <div><span>More info 1: </span>{{dataset.content.ispublic}}}</div>
+  <div><span>More info 2: </span>{{dataset.content.ispublic}}}</div>
+  <div><span>More info 3: </span>{{dataset.content.ispublic}}}</div>
+  <div><span>More info 4: </span>{{dataset.content.ispublic}}}</div>
 
 </div>
