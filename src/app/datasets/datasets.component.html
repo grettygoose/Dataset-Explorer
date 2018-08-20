@@ -1,13 +1,10 @@
+<div class="h2-subtitle">
+  Filter and search all Oncoscape datasets</div>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
-<!-- <ul class="heroes">
-  <li *ngFor="let dataset of datasets" [class.selected]="dataset === selectedDataset" (click)="onSelect(dataset)">
-    <span class="badge">{{dataset.id}}</span> {{dataset.name}}
-  </li>
-</ul> -->
 
-<table mat-table [dataSource]="datasets" class="mat-elevation-z8" fxLayoutGap="1rem grid" fxFill>
+<table mat-table [dataSource]="datasets" class="mat-elevation-z8 dataset-table" fxLayoutGap="1rem grid" fxFill>
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -17,7 +14,7 @@
     <th mat-header-cell *matHeaderCellDef>Name </th>
     <td mat-cell *matCellDef="let dataset" [class.selected]="dataset === selectedDataset" (click)="onSelect(dataset)"> {{dataset.content.name}} </td>
   </ng-container>
-  
+
   <!-- description Column -->
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef>Description </th>
