@@ -7,8 +7,10 @@ html,
 body {
   height: 100%;
   font-family: 'Lato', sans-serif;
-  margin-left: 50px;
+  margin: 10px 50px 25px 50px;
   font-weight: 300;
+  background: #fff;
+  color: #666;
 }
 
 .app-title {
@@ -30,6 +32,7 @@ body {
 }
 table {
   width: 100%;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .mat-form-field {

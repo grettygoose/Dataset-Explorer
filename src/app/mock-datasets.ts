@@ -37,6 +37,30 @@ export const DATASETS: Dataset[] = [
     },
     email: 'bah@gmail.co'
   },
+  {
+    content: {
+      description: 'Oncoplex Prostate',
+      isHuman: true,
+      isPhi: true,
+      isPublic: true,
+        name: 'Oncoplex',
+        reviewNumber: '375635',
+        status: '02.12.2018',
+    },
+    email: 'bah@gmail.co'
+  },
+  {
+    content: {
+      description: 'Prostate Rapid',
+      isHuman: true,
+      isPhi: false,
+      isPublic: true,
+        name: 'Prostate',
+        reviewNumber: '56',
+        status: '09.10.2018',
+    },
+    email: 'test@gmail.com'
+  },
 
 ];
 

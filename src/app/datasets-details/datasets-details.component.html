@@ -1,12 +1,11 @@
 <div *ngIf="dataset">
-
-  <h2>{{dataset.name | uppercase}} Details</h2>
+  <div class="details">{{dataset.content.name}} Details</div>
   <div><span>Name: </span>{{dataset.content.name}}</div>
-  <div><span>Public Dataset: </span>{{dataset.content.ispublic}}</div>
-  <div><span>Contact Info: </span>{{dataset.content.ispublic}}}</div>
-  <div><span>More info 1: </span>{{dataset.content.ispublic}}}</div>
-  <div><span>More info 2: </span>{{dataset.content.ispublic}}}</div>
-  <div><span>More info 3: </span>{{dataset.content.ispublic}}}</div>
-  <div><span>More info 4: </span>{{dataset.content.ispublic}}}</div>
-
+  <div><span>Public Dataset: </span>{{dataset.content.description}}</div>
+  <div><span>Human Dataset: </span>{{dataset.content.isHuman}}</div>
+  <div><span>Contains Personal Health Information (PHI): </span>{{dataset.content.isPhi}}</div>
+  <div><span>Public Dataset: </span>{{dataset.content.isPublic}}</div>
+  <div><span>IRB/IRO Number: </span>{{dataset.content.reviewNumber}}</div>
+  <div><span>Date Uploaded: </span>{{dataset.content.status}}</div>
+  <div><span>Contact Email: </span>{{dataset.content.email}}</div>
 </div>

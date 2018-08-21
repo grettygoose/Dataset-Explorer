@@ -1,6 +1,6 @@
 /* HeroesComponent's private CSS styles */
 .selected {
-    background-color: #6ab7ff;
+    background-color: #1e88e5;
     color: white;
   }
   .h2-subtitle { 
@@ -13,5 +13,6 @@
   }
   .dataset-table {
     margin-top: 25px;
+    margin-bottom: 25px;
   }
   
