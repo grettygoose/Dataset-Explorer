@@ -1,7 +1,8 @@
 
 export class Dataset {
+  email: string;
   content: {
-    description: string,
+      description: string,
       isHuman: boolean,
       isPhi: boolean,
       isPublic: boolean,
@@ -9,7 +10,6 @@ export class Dataset {
       reviewNumber: string,
       status: string,
   };
-  email: string;
 }
 
 

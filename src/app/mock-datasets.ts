@@ -61,6 +61,18 @@ export const DATASETS: Dataset[] = [
     },
     email: 'test@gmail.com'
   },
+  {
+    content: {
+      description: ' Rapid',
+      isHuman: true,
+      isPhi: false,
+      isPublic: true,
+        name: 'test',
+        reviewNumber: '56',
+        status: '09.10.2018',
+    },
+    email: 'cat@gmail.com'
+  },
 
 ];
 

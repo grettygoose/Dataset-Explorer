@@ -1,8 +1,8 @@
 <div class="h2-subtitle">
   Filter and search all Oncoscape datasets</div>
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-</mat-form-field>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
 
 <table mat-table [dataSource]="datasets" class="mat-elevation-z8 dataset-table" fxLayoutGap="1rem grid" fxFill>
 
@@ -61,6 +61,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row;  columns: displayedColumns; "></tr>
 </table>
-
 
 <app-datasets-details [dataset]="selectedDataset"></app-datasets-details>
