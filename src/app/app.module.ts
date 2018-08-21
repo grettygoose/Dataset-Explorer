@@ -9,6 +9,9 @@ import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule,
   MatPaginatorModule, MatProgressSpinnerModule, MatSortModule } from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -17,7 +20,8 @@ import { MessagesComponent } from './messages/messages.component';
     AppComponent,
     DatasetsComponent,
     DatasetsDetailsComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,9 @@ import { MessagesComponent } from './messages/messages.component';
     MatProgressSpinnerModule,
     MatSortModule,
     MatTableModule,
+    AppRoutingModule,
+    RouterModule,
+
 
   ],
   exports: [
@@ -45,7 +52,8 @@ import { MessagesComponent } from './messages/messages.component';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

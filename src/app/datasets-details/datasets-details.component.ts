@@ -1,5 +1,9 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, ViewEncapsulation  } from '@angular/core';
 import { Dataset } from '../dataset';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { DatasetService } from '../datasets.service';
+
 
 @Component({
   selector: 'app-datasets-details',
@@ -9,11 +13,28 @@ import { Dataset } from '../dataset';
   // encapsulation: ViewEncapsulation.None
 })
 export class DatasetsDetailsComponent implements OnInit {
-  @Input() dataset: Dataset;
+  dataset: Dataset;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private datasetService: DatasetService,
+    private location: Location
+  ) { }
 
-  ngOnInit() {
+
+  ngOnInit(): void {
+    this.getDataset();
+  }
+
+  getDataset(): void {
+    const id = +this.route.snapshot.paramMap.get('name');
+    this.datasetService.getDataset(name)
+      .subscribe(dataset => this.dataset = this.dataset);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
+
