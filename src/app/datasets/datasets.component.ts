@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Dataset } from '../dataset';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { DatasetService } from '../datasets.service';
@@ -8,7 +8,9 @@ import { DatasetService } from '../datasets.service';
 @Component({
   selector: 'app-datasets',
   templateUrl: './datasets.component.html',
-  styleUrls: ['./datasets.component.css']
+  styleUrls: ['./datasets.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 
 export class DatasetsComponent implements OnInit {
@@ -18,7 +20,7 @@ export class DatasetsComponent implements OnInit {
   // define data
   datasets: Dataset[];
   // create table
-  // dataSource: MatTableDataSource<Dataset>;
+
   dataSource = new MatTableDataSource(this.datasets);
   // create columns
   displayedColumns: string[] = ['name', 'description', 'isHuman', 'isPhi', 'isPublic', 'reviewNumber', 'status', 'email'];
@@ -61,7 +63,7 @@ export class DatasetsComponent implements OnInit {
 
    }
 
- 
+
 
   ngOnInit() {
     this.getDatasets();

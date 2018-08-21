@@ -11,6 +11,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MessagesComponent } from './messages/messages.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { MessagesComponent } from './messages/messages.component';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+
   ],
   exports: [
     MatButtonModule,

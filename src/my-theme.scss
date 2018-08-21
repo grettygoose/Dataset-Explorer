@@ -1,0 +1,121 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary: mat-palette($mat-blue, 600);
+$accent: mat-palette($mat-blue);
+$warn: mat-palette($mat-deep-orange);
+// Create the theme object (a Sass map containing all of the palettes).
+$theme: mat-light-theme($primary, $accent, $warn);
+
+
+@include angular-material-theme($theme);
+
+
+
+/* You can add global styles to this file, and also import other style files */
+
+
+// Global Styles
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+html,
+body {
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  margin: 10px 50px 25px 50px;
+  font-weight: 300;
+  background: #fff;
+  color: #666;
+}
+
+.app-title {
+  letter-spacing: 8px;
+  font-weight: 100;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color:mat-color($primary);
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+table {
+  width: 100%;
+  font-family: 'Lato', sans-serif !important;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+input[text],
+button {
+  color: #888;
+}
+
+.mat-input-element {
+  caret-color: #1e88e5;
+}
+.selected {
+    background-color: #1e88e5;
+    color: white;
+  }
+  .h2-subtitle { 
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: #666;
+      letter-spacing: 5px;
+      margin-bottom: 50px;
+
+  }
+  .dataset-table {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .details {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    
+}
+
+
+   
+  button.clear {
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+  }
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+  }
+  button.clear {
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+/* everywhere else */
