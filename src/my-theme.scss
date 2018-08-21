@@ -4,15 +4,25 @@
 $primary: mat-palette($mat-blue, 600);
 $accent: mat-palette($mat-blue);
 $warn: mat-palette($mat-deep-orange);
-// Create the theme object (a Sass map containing all of the palettes).
+
+// lump together
 $theme: mat-light-theme($primary, $accent, $warn);
 
-
+// call
 @include angular-material-theme($theme);
 
-
-
-/* You can add global styles to this file, and also import other style files */
+$custom-typography: mat-typography-config(
+  $font-family: 'Lato, monospace',
+  $headline: mat-typography-level(32px, 32px, 300),
+  $title: mat-typography-level(13px, 16px, 300),
+  $body-1: mat-typography-level(13px, 16px, 300),
+  $body-2: mat-typography-level(13px, 16px, 300),
+  $button: mat-typography-level(13px, 16px, 300),
+  $input: mat-typography-level(1em, 1, 300),
+  $subheading-2: mat-typography-level(13px, 16px, 300)
+);
+@include angular-material-typography($custom-typography);
+/* Disable Text Select */
 
 
 // Global Styles
@@ -34,6 +44,8 @@ body {
   background: #fff;
   color: #666;
 }
+
+//specific styles
 
 .app-title {
   letter-spacing: 8px;
@@ -68,11 +80,9 @@ button {
   color: #888;
 }
 
-.mat-input-element {
-  caret-color: #1e88e5;
-}
+
 .selected {
-    background-color: #1e88e5;
+    background-color: mat-color($primary);
     color: white;
   }
   .h2-subtitle { 
@@ -94,8 +104,6 @@ button {
     
 }
 
-
-   
   button.clear {
     font-family: Arial;
     background-color: #eee;

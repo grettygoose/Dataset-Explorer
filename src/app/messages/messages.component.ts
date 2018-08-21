@@ -6,7 +6,7 @@ import { MessageService } from '../message.service';
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class MessagesComponent implements OnInit {
 

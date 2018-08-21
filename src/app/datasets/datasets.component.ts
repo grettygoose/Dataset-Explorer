@@ -10,7 +10,7 @@ import { DatasetService } from '../datasets.service';
   templateUrl: './datasets.component.html',
   styleUrls: ['./datasets.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 
 export class DatasetsComponent implements OnInit {

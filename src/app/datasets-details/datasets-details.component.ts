@@ -6,7 +6,7 @@ import { Dataset } from '../dataset';
   templateUrl: './datasets-details.component.html',
   styleUrls: ['./datasets-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class DatasetsDetailsComponent implements OnInit {
   @Input() dataset: Dataset;
