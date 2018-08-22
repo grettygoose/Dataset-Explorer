@@ -20,6 +20,7 @@ export class DatasetsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   // highlight selection
+  highlightedRows = [];
   selectedDataset: Dataset;
   // define data
   datasets: Dataset[];
@@ -28,6 +29,7 @@ export class DatasetsComponent implements OnInit {
   displayedColumns: string[] = ['select', 'name', 'description', 'isHuman', 'isPhi', 'isPublic', 'status', 'email'];
   dataSource = new MatTableDataSource<Dataset>(DATASETS);
   selection = new SelectionModel<Dataset>(true, []);
+  
 
   // for table filters
   applyFilter(filterValue: string) {
@@ -41,6 +43,7 @@ export class DatasetsComponent implements OnInit {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
+
   }
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
@@ -95,6 +98,9 @@ export class DatasetsComponent implements OnInit {
     this.datasetService.getDatasets()
       .subscribe(datasets => this.datasets = datasets);
   }
+
+
+
 
 }
 

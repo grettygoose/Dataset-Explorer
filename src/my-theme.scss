@@ -85,6 +85,7 @@ button {
     background-color: mat-color($primary);
     color: white;
   }
+
   .h2-subtitle { 
       font-size: 1rem;
       text-transform: uppercase;
@@ -165,6 +166,9 @@ h3 {
   .module {
     min-width: 60px;
   }
+}
+.highlight{
+  background: #42A948; /* green */
 }
 
 
