@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { Dataset } from '../dataset';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { DatasetService } from '../datasets.service';
-import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatRippleModule,
-  MatPaginatorModule, MatProgressSpinnerModule, MatSortModule } from '@angular/material';
- 
+import { SelectionModel } from '@angular/cdk/collections';
+import { DATASETS } from '../mock-datasets';
+
 
 
 @Component({
@@ -23,17 +23,33 @@ export class DatasetsComponent implements OnInit {
   datasets: Dataset[];
   // create table
 
-  dataSource = new MatTableDataSource(this.datasets);
+
   // create columns
-  displayedColumns: string[] = ['name', 'description', 'isHuman', 'isPhi', 'isPublic', 'status', 'email'];
+  displayedColumns: string[] = ['select', 'name', 'description', 'isHuman', 'isPhi', 'isPublic', 'status', 'email'];
+  dataSource = new MatTableDataSource<Dataset>(DATASETS);
+  selection = new SelectionModel<Dataset>(true, []);
 
-  // apply table filters
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
   }
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    masterToggle() {
+      this.isAllSelected() ?
+          this.selection.clear() :
+          this.dataSource.data.forEach(row => this.selection.select(row));
+    }
+
+
+  // for table filters
+  // applyFilter(filterValue: string) {
+  //   filterValue = filterValue.trim(); // Remove whitespace
+  //   filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+  //   this.dataSource.filter = filterValue;
+  // }
 
   constructor(private datasetService: DatasetService) {
     // this.dataSource.filterPredicate = (data, filter) => {
@@ -63,12 +79,11 @@ export class DatasetsComponent implements OnInit {
     //   return valid;
     // };
 
-   }
-
-
+  }
 
   ngOnInit() {
     this.getDatasets();
+    this.dataSource.paginator = this.paginator;
   }
 
   onSelect(datasets: Dataset): void {

@@ -16,6 +16,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSortModule,
     MatTableModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCheckboxModule,
+
   ],
   exports: [
     MatButtonModule,
@@ -52,6 +56,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatProgressSpinnerModule,
     MatSortModule,
     MatTableModule,
+    MatCheckboxModule,
+
 
   ],
   providers: [],

@@ -1,35 +1,39 @@
 <div class="h2-subtitle">
   Filter all Oncoscape datasets</div>
-
-
-
-
-
-    <button style="margin-bottom: 25px;" mat-raised-button routerLink="/dashboard" color="primary">Datasets Dashboard</button>
-
-
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-
-
- 
-
-
-
+<button style="margin-bottom: 25px;" mat-raised-button routerLink="/dashboard" color="primary">Datasets Dashboard</button>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
 <table mat-table [dataSource]="datasets" class="mat-elevation-z8 dataset-table" fxLayoutGap="1rem grid">
-
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+  <!-- Position Column -->
+  <ng-container matColumnDef="checked">
+    <mat-header-cell *matHeaderCellDef>Check</mat-header-cell>
+    <mat-cell *matCellDef="let dataset">
+      <mat-checkbox [(ngModel)]="dataset.checked"></mat-checkbox>
+    </mat-cell>
+  </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name </th>
-    <td mat-cell *matCellDef="let dataset" routerLink="/datasets-details/{{dataset.content.name}}"> {{dataset.content.name}} </td>
+    <td mat-cell *matCellDef="let dataset"> {{dataset.content.name}} </td>
   </ng-container>
 
   <!-- description Column -->
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef>Description </th>
-    <td mat-cell *matCellDef="let dataset" routerLink="/datasets-details/{{dataset.content.description}}" (click)="onSelect(dataset)">
+    <td mat-cell *matCellDef="let dataset" (click)="onSelect(dataset)">
       {{dataset.content.description}} </td>
   </ng-container>
 
@@ -69,8 +73,11 @@
       {{dataset.email}} </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row;  columns: displayedColumns; "></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+  </tr>
 </table>
-
+<div>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
 <app-datasets-details routerLink="/datasets-details"></app-datasets-details>
