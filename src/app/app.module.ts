@@ -10,8 +10,9 @@ import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule,
 import {MatTableModule} from '@angular/material/table';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { Routes, RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -21,7 +22,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DatasetsComponent,
     DatasetsDetailsComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +40,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSortModule,
     MatTableModule,
     AppRoutingModule,
-    RouterModule,
-
-
+    FlexLayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -56,6 +55,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

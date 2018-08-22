@@ -2,7 +2,9 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@
 import { Dataset } from '../dataset';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { DatasetService } from '../datasets.service';
-
+import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatRippleModule,
+  MatPaginatorModule, MatProgressSpinnerModule, MatSortModule } from '@angular/material';
+ 
 
 
 @Component({

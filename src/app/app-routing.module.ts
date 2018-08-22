@@ -10,13 +10,14 @@ const routes: Routes = [
   { path: 'datasets', component: DatasetsComponent },
   { path: 'datasets-details/:content.name', component: DatasetsDetailsComponent },
   { path: 'dashboard', component: DashboardComponent },
+  {path: '**', redirectTo: '', pathMatch: 'full'},
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 
 
 
