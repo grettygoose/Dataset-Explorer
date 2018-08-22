@@ -96,6 +96,9 @@ button {
   .dataset-table {
     margin-top: 25px;
     margin-bottom: 25px;
+    height: 400px;
+    overflow: auto;
+
   }
   .details {
     font-size: 1.5rem;
