@@ -6,7 +6,7 @@
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 <!-- Start Table -->
-<table mat-table [dataSource]="dataSource" matSort  class="dataset-table mat-elevation-z8 " fxLayoutGap="1rem grid">
+<table mat-table [dataSource]="dataSource" matSort class="dataset-table mat-elevation-z8 " fxLayoutGap="1rem grid">
   <!-- Checkbox Column -->
   <ng-container matColumnDef="select">
     <th mat-header-cell *matHeaderCellDef>
@@ -79,10 +79,9 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
   </tr>
 </table>
-<div>
-    <mat-paginator [length]="100"
-    [pageSize]="10"
-    [pageSizeOptions]="[5, 10, 25, 50]">
-</mat-paginator>
+<div fxLayout="row" fxLayoutAlign="space-between center" style="padding-top: 30px;">
+  <button mat-raised-button color="primary">View Details</button>
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[10, 25, 50]">
+  </mat-paginator>
 </div>
 <app-datasets-details routerLink="/datasets-details"></app-datasets-details>
