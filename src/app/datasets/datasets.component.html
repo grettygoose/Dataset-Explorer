@@ -3,19 +3,18 @@
 
 
 
-<section fxLayout.xs='column'>
-  <div fxFlex.sm='1 1 100%' fxFlex.md='1 1 100%' fxFlex.lg='1 1 30%' fxFlex.xl='1 1 30%'>
-     
-      <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field>
-  
-  </div>
-  <div fxFlex.sm='1 1 100%' fxFlex.md='1 1 100%' fxFlex.lg='1 1 15%' fxFlex.xl='1 1 15%'>
-      <div><button mat-stroked-button routerLink="/dashboard" color="primary">Datasets Dashboard</button></div>  
-    
-  </div>
-</section>
+
+
+    <button style="margin-bottom: 25px;" mat-raised-button routerLink="/dashboard" color="primary">Datasets Dashboard</button>
+
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+
+ 
+
 
 
 <table mat-table [dataSource]="datasets" class="mat-elevation-z8 dataset-table" fxLayoutGap="1rem grid">
@@ -55,12 +54,6 @@
       {{dataset.content.isPublic}} </td>
   </ng-container>
 
-
-  <!-- contact Column -->
-  <ng-container matColumnDef="reviewNumber">
-    <th mat-header-cell *matHeaderCellDef>IRB Number </th>
-    <td mat-cell *matCellDef="let dataset" routerLink="/datasets-details/{{dataset.content.reviewNumber}}" (click)="onSelect(dataset)">{{dataset.content.reviewNumber}} </td>
-  </ng-container>
 
   <!-- Date Uploaded  Column -->
   <ng-container matColumnDef="status">

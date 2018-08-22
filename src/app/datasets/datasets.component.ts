@@ -25,7 +25,7 @@ export class DatasetsComponent implements OnInit {
 
   dataSource = new MatTableDataSource(this.datasets);
   // create columns
-  displayedColumns: string[] = ['name', 'description', 'isHuman', 'isPhi', 'isPublic', 'reviewNumber', 'status', 'email'];
+  displayedColumns: string[] = ['name', 'description', 'isHuman', 'isPhi', 'isPublic', 'status', 'email'];
 
   // apply table filters
 
