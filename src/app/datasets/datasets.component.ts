@@ -23,6 +23,7 @@ export class DatasetsComponent implements OnInit {
   selectedDataset: Dataset;
   // define data
   datasets: Dataset[];
+  highlightedRows = [];
 
 
   /** create columns + table  */
