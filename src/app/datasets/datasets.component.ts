@@ -19,17 +19,16 @@ export class DatasetsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  // highlight selection
-  highlightedRows = [];
+
   selectedDataset: Dataset;
   // define data
   datasets: Dataset[];
+
 
   /** create columns + table  */
   displayedColumns: string[] = ['select', 'name', 'description', 'isHuman', 'isPhi', 'isPublic', 'status', 'email'];
   dataSource = new MatTableDataSource<Dataset>(DATASETS);
   selection = new SelectionModel<Dataset>(true, []);
-  
 
   // for table filters
   applyFilter(filterValue: string) {
@@ -97,6 +96,9 @@ export class DatasetsComponent implements OnInit {
   getDatasets(): void {
     this.datasetService.getDatasets()
       .subscribe(datasets => this.datasets = datasets);
+  }
+  selectRow(row) {
+    console.log(row);
   }
 
 
