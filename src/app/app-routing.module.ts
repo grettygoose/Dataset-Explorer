@@ -8,7 +8,7 @@ import { DatasetsDetailsComponent } from './datasets-details/datasets-details.co
 const routes: Routes = [
   { path: '', redirectTo: '/datasets', pathMatch: 'full' },
   { path: 'datasets', component: DatasetsComponent },
-  { path: 'datasets-details/:content.name', component: DatasetsDetailsComponent },
+  { path: 'datasets-details', component: DatasetsDetailsComponent },
   { path: 'dashboard', component: DashboardComponent },
   {path: '**', redirectTo: '', pathMatch: 'full'},
 ];

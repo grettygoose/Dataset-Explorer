@@ -14,6 +14,7 @@ import { DatasetService } from '../datasets.service';
 })
 export class DatasetsDetailsComponent implements OnInit {
   dataset: Dataset;
+  datasets: Dataset[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -23,13 +24,13 @@ export class DatasetsDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getDataset();
+    this.getDatasets();
   }
 
-  getDataset(): void {
+  getDatasets(): void {
     const id = +this.route.snapshot.paramMap.get('name');
-    this.datasetService.getDataset(name)
-      .subscribe(dataset => this.dataset = this.dataset);
+    this.datasetService.getDatasets()
+      .subscribe(datasets => this.datasets = datasets);
   }
 
   goBack(): void {

@@ -5,8 +5,18 @@ import { AppComponent } from './app.component';
 import { DatasetsComponent } from './datasets/datasets.component';
 import { DatasetsDetailsComponent } from './datasets-details/datasets-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatRippleModule,
-  MatPaginatorModule, MatProgressSpinnerModule, MatSortModule } from '@angular/material';
+import { MatButtonModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatMenuModule,
+  MatIconModule
+
+ } from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -14,6 +24,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { ApplicationBarComponent } from './application-bar/application-bar.component';
+
 
 
 
@@ -26,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     DatasetsDetailsComponent,
     MessagesComponent,
     DashboardComponent,
+    ApplicationBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +58,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FlexLayoutModule,
     MatCheckboxModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
+
 
   ],
   exports: [
@@ -58,6 +75,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSortModule,
     MatTableModule,
     MatCheckboxModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
 
 
   ],

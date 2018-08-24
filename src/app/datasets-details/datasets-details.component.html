@@ -1,12 +1,19 @@
-<div *ngIf="dataset">
+<div class="h2-subtitle">Selection Details</div>
+<div *ngFor="let dataset of datasets">
   <div class="details">{{dataset.content.name}} Details</div>
-  <div><span>Name: </span>{{dataset.content.name}}</div>
-  <div><span>Public Dataset: </span>{{dataset.content.description}}</div>
-  <div><span>Human Dataset: </span>{{dataset.content.isHuman}}</div>
-  <div><span>Contains Personal Health Information (PHI): </span>{{dataset.content.isPhi}}</div>
-  <div><span>Public Dataset: </span>{{dataset.content.isPublic}}</div>
-  <div><span>IRB/IRO Number: </span>{{dataset.content.reviewNumber}}</div>
-  <div><span>Date Uploaded: </span>{{dataset.content.status}}</div>
-  <div><span>Contact Email: </span>{{dataset.content.email}}</div>
-  <button (click)="goBack()">go back</button>
+  <div>
+    <span>Name: </span>{{dataset.content.name}}</div>
+  <div>
+    <span>Description: </span>{{dataset.content.description}}</div>
+  <div>
+    <span>Human Dataset: </span>{{dataset.content.isHuman}}</div>
+  <div>
+    <span>Public Dataset: </span>{{dataset.content.isPublic}}</div>
+  <div>
+    <span>Date Uploaded: </span>{{dataset.content.status}}</div>
+  <div>
+    <span>Contact Email: </span>{{dataset.content.email}}</div>
+  <div>
+    <span>PHI: </span>{{dataset.content.isPhi}}</div>
 </div>
+<button style="margin-top: 25px;" mat-raised-button color="primary" (click)="goBack()">Go Back</button>
