@@ -43,7 +43,7 @@ export class DatasetsComponent implements OnInit {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
-
+    
   }
   // Selects all rows if they are not all selected; otherwise clear selection
   masterToggle() {
@@ -53,33 +53,7 @@ export class DatasetsComponent implements OnInit {
   }
 
   constructor(private datasetService: DatasetService) {
-    //  might be hack for nested JSON classes?
-    this.dataSource.filterPredicate = (data, filter) => {
-      let valid = false;
 
-      const transformedFilter = filter.trim().toLowerCase();
-
-      Object.keys(data).map(key => {
-        if (
-          key === 'content' &&
-          (data.content.name.toLowerCase().includes(transformedFilter) ||
-          ('' + data.content.isHuman).toLowerCase().includes(transformedFilter) ||
-          ('' + data.content.isPhi).toLowerCase().includes(transformedFilter) ||
-          ('' + data.content.isPublic).toLowerCase().includes(transformedFilter) ||
-          ('' + data.content.name).toLowerCase().includes(transformedFilter) ||
-          ('' + data.content.description).toLowerCase().includes(transformedFilter) ||
-          ('' + data.content.status).toLowerCase().includes(transformedFilter))
-        ) {
-          valid = true;
-        } else {
-          if (('' + data[key]).toLowerCase().includes(transformedFilter)) {
-            valid = true;
-          }
-        }
-      });
-
-      return valid;
-    };
 
    }
 

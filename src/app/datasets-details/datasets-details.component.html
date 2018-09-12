@@ -1,19 +1,19 @@
 <div class="h2-subtitle">Selection Details</div>
 <div *ngFor="let dataset of datasets">
-  <div class="details">{{dataset.content.name}} Details</div>
+  <div class="details">{{dataset.name}} Details</div>
   <div>
-    <span>Name: </span>{{dataset.content.name}}</div>
+    <span>Name: </span>{{dataset.name}}</div>
   <div>
-    <span>Description: </span>{{dataset.content.description}}</div>
+    <span>Description: </span>{{dataset.description}}</div>
   <div>
-    <span>Human Dataset: </span>{{dataset.content.isHuman}}</div>
+    <span>Human Dataset: </span>{{dataset.isHuman}}</div>
   <div>
-    <span>Public Dataset: </span>{{dataset.content.isPublic}}</div>
+    <span>Public Dataset: </span>{{dataset.isPublic}}</div>
   <div>
-    <span>Date Uploaded: </span>{{dataset.content.status}}</div>
+    <span>Date Uploaded: </span>{{dataset.status}}</div>
   <div>
-    <span>Contact Email: </span>{{dataset.content.email}}</div>
+    <span>Contact Email: </span>{{dataset.email}}</div>
   <div>
-    <span>PHI: </span>{{dataset.content.isPhi}}</div>
+    <span>PHI: </span>{{dataset.isPhi}}</div>
 </div>
 <button style="margin-top: 25px;" mat-raised-button color="primary" (click)="goBack()">Go Back</button>

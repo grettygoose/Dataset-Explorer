@@ -19,7 +19,7 @@ export class DatasetService {
   getDataset(name: string): Observable<Dataset> {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`DatasetService: fetched dataset name=${name}`);
-    return of(DATASETS.find(dataset => dataset.content.name === name));
+    return of(DATASETS.find(dataset => dataset.name === name));
   }
 
 }
