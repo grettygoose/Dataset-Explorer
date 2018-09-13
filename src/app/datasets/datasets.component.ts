@@ -19,43 +19,36 @@ export class DatasetsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-
   // define data
   datasets: Dataset[];
-  // highlighting
-  highlightedRows = [];
-
 
   // create columns + table
   displayedColumns: string[] = ['select', 'name', 'description', 'isHuman', 'isPublic', 'status', 'email'];
   dataSource = new MatTableDataSource<Dataset>(DATASETS);
   selection = new SelectionModel<Dataset>(true, []);
 
-  // for table filters
+  // Table Filters
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 
-  // Whether the number of selected elements matches the total number of rows
+  // Table Selection: whether the number of selected elements matches the total number of rows
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
-    
+
   }
-  // Selects all rows if they are not all selected; otherwise clear selection
+  // Selects ALL rows if they are not all selected; otherwise clear selection
   masterToggle() {
     this.isAllSelected() ?
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  constructor(private datasetService: DatasetService) {
-
-
-   }
+  constructor(private datasetService: DatasetService) { }
 
   ngOnInit() {
     this.getDatasets();

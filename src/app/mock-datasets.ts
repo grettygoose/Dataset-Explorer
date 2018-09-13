@@ -191,7 +191,7 @@ export const DATASETS: Dataset[] = [
   {
     isSelected: false,
     description: ' Rapid',
-    isHuman: true,
+    isHuman: false,
     isPhi: false,
     isPublic: true,
     name: 'test',
@@ -202,7 +202,7 @@ export const DATASETS: Dataset[] = [
   {
     isSelected: false,
     description: ' Rapid',
-    isHuman: true,
+    isHuman: false,
     isPhi: false,
     isPublic: true,
     name: 'test',

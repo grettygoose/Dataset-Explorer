@@ -1,80 +1,65 @@
 <div class="h2-subtitle">Filter and search all datasets</div>
-<!-- Dashboard Button-->
-<!-- <button style="margin-bottom: 25px;" mat-raised-button routerLink="/dashboard" color="primary">Datasets Dashboard</button> -->
 <!-- Filter-->
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 <!-- Start Table -->
-<table mat-table [dataSource]="dataSource" matSort class="dataset-table mat-elevation-z8" >
+<table mat-table [dataSource]="dataSource" matSort class="dataset-table mat-elevation-z8">
   <!-- Checkbox Column -->
-  <ng-container matColumnDef="select" >
-    <th mat-header-cell *matHeaderCellDef >
-      <mat-checkbox (change)="$event ? masterToggle() : null" 
-      [checked]="selection.hasValue() && isAllSelected()" 
-      [indeterminate]="selection.hasValue() && !isAllSelected()" >
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()">
       </mat-checkbox>
     </th>
-    <td mat-cell *matCellDef="let row" >
-      <mat-checkbox (click)="$event.stopPropagation()" 
-      (change)="$event ? selection.toggle(row) : null" 
-      [checked]="selection.isSelected(row)" (click)="selectRow(row)"
-      (click)="highlightedRows.push(row)"
-      [style.background]="highlightedRows.indexOf(row) != -1  ? 'lightblue' : 'white'">
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
+        (click)="selectRow(row)">
       </mat-checkbox>
     </td>
   </ng-container>
-
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Name </th>
     <td mat-cell *matCellDef="let dataset"> {{dataset.name}} </td>
   </ng-container>
-
   <!-- description Column -->
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Description </th>
     <td mat-cell *matCellDef="let dataset">
       {{dataset.description}} </td>
   </ng-container>
-
   <!-- isHuman Column -->
   <ng-container matColumnDef="isHuman">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>isHuman </th>
     <td mat-cell *matCellDef="let dataset">
       {{dataset.isHuman}} </td>
   </ng-container>
-
   <!-- isPublic Column -->
   <ng-container matColumnDef="isPublic">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>isPublic </th>
-    <td mat-cell *matCellDef="let dataset" >
+    <td mat-cell *matCellDef="let dataset">
       {{dataset.isPublic}} </td>
   </ng-container>
-
-
   <!-- Date Uploaded  Column -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Uploaded </th>
-    <td mat-cell *matCellDef="let dataset" >
+    <td mat-cell *matCellDef="let dataset">
       {{dataset.status}} </td>
   </ng-container>
-
   <!-- contact Column -->
   <ng-container matColumnDef="email">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact Email </th>
     <td mat-cell *matCellDef="let dataset">
       {{dataset.email}} </td>
   </ng-container>
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" (click)="highlightedRows.push(row)"
-  [style.background]="highlightedRows.indexOf(row) != -1  ? '#6ab7ff' : 'white'"  >
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)">
   </tr>
 </table>
 <div fxLayout="row" fxLayoutAlign="space-between center">
-  <button mat-raised-button color="primary" routerLink="/datasets-details" >View Selection</button>
-  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[10, 25, 50]">
+  <button mat-raised-button color="primary" routerLink="/datasets-details">View Selection</button>
+  <mat-paginator [length]="100" [pageSize]="20" [pageSizeOptions]="[10, 25, 50]">
   </mat-paginator>
 </div>
-<!-- <app-datasets-details routerLink="/datasets-details"></app-datasets-details> -->
+
