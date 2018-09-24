@@ -23,7 +23,7 @@ export class DatasetsComponent implements OnInit {
   // datasets: Dataset[];
 
   // create columns + table
-  displayedColumns: string[] = ['select', 'name', 'description', 'isHuman', 'isPublic', 'status', 'email'];
+  displayedColumns: string[] = ['select', 'name', 'site', 'description', 'isHuman', 'isPublic', 'reviewType', 'email'];
   dataSource: MatTableDataSource<Dataset>;
   selection = new SelectionModel<Dataset>(true, []);
 

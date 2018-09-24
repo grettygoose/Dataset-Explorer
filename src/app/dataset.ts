@@ -8,11 +8,13 @@ export class Dataset {
   isPhi: boolean;
   isPublic: boolean;
   name: string;
-  reviewNumber: string;
+  reviewType: string;
   status: string;
+  site: string;
 
   static parse(vo: any): Dataset {
     const ds = new Dataset();
+    ds.site = vo.content.site;
     ds.isSelected = false;
     ds.name = vo.content.name;
     ds.description = vo.content.description;
@@ -20,7 +22,7 @@ export class Dataset {
     ds.isHuman = vo.content.isHuman;
     ds.isPhi = vo.content.isPhi;
     ds.isPublic = vo.content.isPublic;
-    ds.reviewNumber = vo.content.reviewNumber;
+    ds.reviewType = vo.content.reviewNumber;
     ds.status = vo.content.status;
     return ds;
   }
