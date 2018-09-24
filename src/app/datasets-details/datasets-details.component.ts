@@ -22,7 +22,6 @@ export class DatasetsDetailsComponent implements OnInit {
     private location: Location
   ) { }
 
-
   ngOnInit(): void {
     this.getDatasets();
   }

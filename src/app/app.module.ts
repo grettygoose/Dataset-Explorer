@@ -42,6 +42,7 @@ import { ApplicationBarComponent } from './application-bar/application-bar.compo
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     MatButtonModule,
@@ -85,4 +86,6 @@ import { ApplicationBarComponent } from './application-bar/application-bar.compo
   bootstrap: [AppComponent],
 
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

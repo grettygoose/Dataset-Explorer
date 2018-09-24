@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Dataset } from './dataset';
-import { DATASETS } from './mock-datasets';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatasetService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private http: HttpClient) { }
+  datasets: Observable<Dataset[]> = new Observable();
 
-  getDatasets(): Observable<Dataset[]> {
-    // TODO: send the message _after_ fetching the dataset
-    this.messageService.add('DatasetsService: fetched datasets');
-    return of(DATASETS);
+  getDatasets(): Observable<any> {
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
+    return this.http.get('https://oncoscape.v3.sttrcancer.org/public/datasets', {headers: new HttpHeaders(headerDict)});
   }
-  getDataset(name: string): Observable<Dataset> {
-    // TODO: send the message _after_ fetching the hero
-    this.messageService.add(`DatasetService: fetched dataset name=${name}`);
-    return of(DATASETS.find(dataset => dataset.name === name));
-  }
+
 
 }

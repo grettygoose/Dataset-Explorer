@@ -1,9 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Dataset } from '../dataset';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { DatasetService } from '../datasets.service';
 import { SelectionModel } from '@angular/cdk/collections';
-import { DATASETS } from '../mock-datasets';
+
 
 
 @Component({
@@ -19,12 +19,12 @@ export class DatasetsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  // define data
-  datasets: Dataset[];
+  // // define data
+  // datasets: Dataset[];
 
   // create columns + table
   displayedColumns: string[] = ['select', 'name', 'description', 'isHuman', 'isPublic', 'status', 'email'];
-  dataSource = new MatTableDataSource<Dataset>(DATASETS);
+  dataSource: MatTableDataSource<Dataset>;
   selection = new SelectionModel<Dataset>(true, []);
 
   // Table Filters
@@ -48,17 +48,20 @@ export class DatasetsComponent implements OnInit {
       this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  constructor(private datasetService: DatasetService) { }
+  constructor(private datasetService: DatasetService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.getDatasets();
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
   }
 
   getDatasets(): void {
     this.datasetService.getDatasets()
-      .subscribe(datasets => this.datasets = datasets);
+      .subscribe(datasets => {
+        this.dataSource = new MatTableDataSource<Dataset>(datasets.map(Dataset.parse));
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.cdr.markForCheck();
+      });
   }
   selectRow(row) {
     console.log(row);
