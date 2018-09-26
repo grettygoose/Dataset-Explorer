@@ -19,9 +19,6 @@ export class DatasetsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  // // define data
-  // datasets: Dataset[];
-
   // create columns + table
   displayedColumns: string[] = ['select', 'name', 'site', 'description', 'isHuman', 'isPublic', 'reviewType', 'email'];
   dataSource: MatTableDataSource<Dataset>;

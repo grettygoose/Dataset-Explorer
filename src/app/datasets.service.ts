@@ -18,6 +18,7 @@ export class DatasetService {
       'Accept': 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
     };
+
     return this.http.get('https://oncoscape.v3.sttrcancer.org/public/datasets', {headers: new HttpHeaders(headerDict)});
   }
 

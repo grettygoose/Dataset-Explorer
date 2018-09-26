@@ -18,7 +18,6 @@ import { MatButtonModule,
 
  } from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
-import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -36,7 +35,6 @@ import { ApplicationBarComponent } from './application-bar/application-bar.compo
     AppComponent,
     DatasetsComponent,
     DatasetsDetailsComponent,
-    MessagesComponent,
     DashboardComponent,
     ApplicationBarComponent,
   ],
@@ -86,6 +84,6 @@ import { ApplicationBarComponent } from './application-bar/application-bar.compo
   bootstrap: [AppComponent],
 
 })
-export class AppModule { 
-  
+export class AppModule {
 }
+
